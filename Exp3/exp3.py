@@ -89,3 +89,22 @@ print_matrix('A Matrix', A)
 print()
 print_matrix('I Matrix', I)
 
+*********
+# Matrix solution findind of AX =B
+'''
+Solution of 
+Ax =B 
+x = A^-1 B '''
+import numpy as np
+def Inverse(M):
+  Minv = np.linalg.inv(M)
+  return Minv
+
+A = [[1,0,0],
+    [1,1,1],
+    [6,7,0]]
+b = [0,24,0]
+# Find inverse of matrix A.
+Ai = Inverse(A) 
+x = np.dot(Ai,b)
+print("Resut = ",x)
