@@ -108,3 +108,13 @@ b = [0,24,0]
 Ai = Inverse(A) 
 x = np.dot(Ai,b)
 print("Resut = ",x)
+******
+# RANK of a matrix:
+
+from numpy import matrix
+A = matrix([[1,3,7],[2,8,3]], dtype=float)  # doesn't accept int
+
+import scipy.linalg.interpolative as sli
+rank = sli.estimate_rank(A, eps=1e-10)
+print("Rank = ", rank)
+
