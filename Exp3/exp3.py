@@ -118,3 +118,21 @@ import scipy.linalg.interpolative as sli
 rank = sli.estimate_rank(A, eps=1e-10)
 print("Rank = ", rank)
 
+*****
+#Eiganvalues Eiganvector
+
+
+# In Linear Algebra, a scalar λ is called an eigenvalue of matrix A if there exists a column vector v
+# such that Av = λv
+# v is non-zero. Any vector satisfying the above relation is known as eigenvector of the matrix A corresponding to the eigen value λ. 
+
+
+import numpy as np
+
+a = np.array([[3, 1], [2, 2]])
+w, v = np.linalg.eig(a)
+
+print("Eiganvalues : ",w)
+print("Eiganvectors: \n",v)
+
+
