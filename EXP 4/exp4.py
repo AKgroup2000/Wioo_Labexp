@@ -46,3 +46,67 @@ plt.plot(xs,derivative(f,xs, dx=0.001))
 ax = plt.gca()
 ax.set_ylim(-5,5)
 plt.savefig('temp.png')
+
+      
+# ~ ~ ~    EXP 4.4 * * * * 
+"""
+Numerical integration
+
+Scientific Python provides a number of integration routines. A general purpose tool to solve integrals I of the kind
+I=∫(b to a) f(x)dx
+
+is provided by the quad() function of the scipy.integrate module.
+
+It takes as input arguments the function f(x) to be integrated (the “integrand”), and the lower and upper limits a and b. It returns two values (in a tuple): the first one is the computed results and the second one is an estimation of the numerical error of that result.
+"""
+
+from math import cos, exp, pi
+from scipy.integrate import quad
+
+# function we want to integrate
+def f(x):
+    return exp(cos(-2 * x * pi)) + 3.2
+
+# call quad to integrate f from -2 to 2
+res, err = quad(f, -2, 2)
+
+print("The numerical result is {:f} (+-{:g})"
+    .format(res, err))
+
+"""
+Solving ordinary differential equations
+
+To solve an ordinary differential equation of the type
+dy/dt(t)=f(y,t)
+
+with a given y(t0) = y0
+
+, we can use scipy’s odeint function. Here is a (self explaining) example program (useodeint.py) to find
+y(t) for t∈[0,2]
+
+given this differential equation:
+dy/dt(t)=−2yt with y(0)=1.
+"""
+
+%matplotlib inline
+from scipy.integrate import odeint
+import numpy as N
+
+def f(y, t):
+    """this is the RHS of the ODE to integrate, i.e. dy/dt=f(y,t)"""
+    return -2 * y * t
+
+y0 = 1             # initial value
+a = 0              # integration limits for t
+b = 2
+
+t = N.arange(a, b, 0.01)  # values of t for
+                          # which we require
+                          # the solution y(t)
+y = odeint(f, y0, t)  # actual computation of y(t)
+
+import pylab          # plotting of results
+pylab.plot(t, y)
+pylab.xlabel('t'); pylab.ylabel('y(t)')
+      
+      
