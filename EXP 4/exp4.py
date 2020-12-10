@@ -25,3 +25,24 @@ print(sp.diff(f, z))
 f = 2*x**3+4*x
 f_prime = sp.diff(f)
 print(f_prime)
+
+      
+## Exp 4.3
+%matplotlib inline
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.misc import derivative
+
+# f(x) define the function.
+def f(x):
+  return np.sin(x)
+derivative(f,1,dx=0.0001)
+#xs = np.arange(0, 5, 0.1)
+xs = np.linspace(-np.pi, np.pi, 100)
+plt.plot(xs,f(xs))
+print("F(x) = ", f(xs))
+print("Derivative = ", derivative(f, xs, dx = 0.001))
+plt.plot(xs,derivative(f,xs, dx=0.001))
+ax = plt.gca()
+ax.set_ylim(-5,5)
+plt.savefig('temp.png')
