@@ -1,3 +1,34 @@
+# EXP 4.1
+
+%matplotlib inline
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.misc import derivative
+
+def f0(x):
+  return np.sin(x)
+
+def f1(x):
+  return np.cos(x)
+
+def f2(x):
+  return np.sinh(x)
+
+def f3(x):
+  return np.cosh(x)
+
+t = np.arange(0, 10, 0.01)
+plt.plot(t,f0(t))
+plt.show()
+plt.plot(t,f1(t))
+plt.show()
+
+plt.plot(t,f2(t))
+plt.show()
+
+plt.plot(t,f3(t))
+plt.show()
+
 #EXP 4.2
 
 import sympy as sp
