@@ -140,4 +140,15 @@ import pylab          # plotting of results
 pylab.plot(t, y)
 pylab.xlabel('t'); pylab.ylabel('y(t)')
       
-      
+ #EXP 4.5     
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+# f = lambda x: np.sin(0.2*x) + np.sin(2*x) + 1
+f = lambda x: 4*(t**2) + 3
+
+
+x = np.linspace(0,2*np.pi,100)
+y = f(x)
+plt.plot(x,y)
