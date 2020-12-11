@@ -146,9 +146,23 @@ import matplotlib.pyplot as plt
 %matplotlib inline
 
 # f = lambda x: np.sin(0.2*x) + np.sin(2*x) + 1
-f = lambda x: 4*(t**2) + 3
+f = lambda x: 4*(x**2) + 3
 
 
 x = np.linspace(0,2*np.pi,100)
 y = f(x)
 plt.plot(x,y)
+
+      
+# - - - - - -  4.6
+      
+from sympy import integrate, Symbol, init_printing
+
+init_printing(use_unicode=True)
+
+x = Symbol('x')
+f = lambda x: 4*(x**2) + 3
+
+
+#integrate(f(x), x)
+integrate(f(x), (x, -2, 2))
