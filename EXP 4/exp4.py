@@ -166,3 +166,37 @@ f = lambda x: 4*(x**2) + 3
 
 #integrate(f(x), x)
 integrate(f(x), (x, -2, 2))
+
+      # EXP 4.7
+from scipy import integrate
+import pdb
+f = lambda x : 4*(x**2)+3
+y, err = integrate.quad(f, -2, 2)
+print(y)
+
+fig, ax = plt.subplots(1,1)
+
+#Continous curve
+x=np.arange(-2,2,0.01)
+# y=f(x)
+y, err = integrate.quad(f, -2, 2)
+b = np.arange(y-4,y,0.01)
+#pdb.set_trace()
+ax.plot(b,x, 'k-')
+print(type(y),"\n",type(x))
+#Trapizium
+xstep = np.arange(0,10,3)
+area=trapz(b,x)
+print ( "Trapezoidal Area: " ,area)
+ax.fill_between(f(xstep), 0, xstep)
+
+#Simpsons
+area=simps(b,x)
+print("Simpson Area:",  area)
+#etc etc
+
+plt.show()
+
+print(type(y))
+print(type(x))
+
