@@ -200,5 +200,11 @@ plt.show()
 print(type(y))
 print(type(x))
 
-
+# EXP 4.8   
       
+from scipy import integrate
+
+invexp = lambda x: ((1/2)*np.pi*(np.exp(-(x**2)/2)))
+Ans = integrate.quad(invexp, 0, np.inf)
+print(" \n Ans = ",Ans)   #(1.9687012432153017, 2.0037818122754965e-08)
+
