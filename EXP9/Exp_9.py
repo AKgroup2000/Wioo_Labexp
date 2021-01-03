@@ -33,3 +33,23 @@ for i in N:
   prob = Sum/i
   print("Probability of head occured in",i," toss = ",prob)
 
+# * * * * * * * EXP 9.4 * * * * 
+import pandas as pd 
+import matplotlib.pyplot as plt
+
+# list of strings 
+lst = [count,Err] 
+  
+# Calling DataFrame constructor on list 
+# with indices and columns specified 
+df = pd.DataFrame(count,columns =[' Count ']) 
+df[' Error '] = Err
+
+import matplotlib.pyplot as plt
+from matplotlib import style
+%matplotlib inline
+
+plt.xlabel(" Error ",)
+plt.ylabel(" Count ")
+plt.title("Error calculation")
+plt.plot(df)
