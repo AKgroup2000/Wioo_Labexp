@@ -18,3 +18,18 @@ def Toss():
 
 Toss()
 print("Successfully completed")
+
+* * * * * * *  *  EXP 9.2  * * * * * * 
+
+import numpy as np
+from random import randint
+Sum =0
+N = [10,500,1000, 5000, 50000]
+for i in N:
+  for j in range(i):
+    p = randint(0,2)
+    if p == 1:
+      Sum+=1
+  prob = Sum/i
+  print("Probability of head occured in",i," toss = ",prob)
+
