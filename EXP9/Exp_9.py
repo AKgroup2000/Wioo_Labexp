@@ -33,23 +33,29 @@ for i in N:
   prob = Sum/i
   print("Probability of head occured in",i," toss = ",prob)
 
-# * * * * * * * EXP 9.4 * * * * 
-import pandas as pd 
+# * * * * * * * EXP 9.3 * * * * 
+from numpy import random 
 import matplotlib.pyplot as plt
-
-# list of strings 
-lst = [count,Err] 
-  
-# Calling DataFrame constructor on list 
-# with indices and columns specified 
-df = pd.DataFrame(count,columns =[' Count ']) 
-df[' Error '] = Err
-
-import matplotlib.pyplot as plt
-from matplotlib import style
 %matplotlib inline
 
-plt.xlabel(" Error ",)
-plt.ylabel(" Count ")
-plt.title("Error calculation")
-plt.plot(df)
+N = [100, 500, 1000, 5000, 500000]
+Sum = 0
+Prob = []
+Abs_Err = []
+for i in N:
+  for j in range(i):
+    if random.randint(0,2) == 1:
+      Sum+=1
+  print("Sum = ",Sum)
+  Prob.append((Sum/i))
+  print("Probability = ", Sum/i)
+for i in Prob:
+  Abs_Err.append(abs(0.5-i))
+
+fig, ax = plt.subplots()
+ax.plot(N, Abs_Err)
+ax.set(xlabel='No of toss',
+       ylabel='Abs Error',
+       title='ABS Error calculation')
+
+plt.show()
