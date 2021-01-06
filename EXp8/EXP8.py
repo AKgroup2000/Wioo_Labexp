@@ -1,43 +1,46 @@
-# Exp 8.1 
+#  * * * ** * * * ** EXP 8.1 
 
-#PYTHON CODE:
+# Just an introduction based on forier series
+
+# ****** EXP 8.2 
+
+%pylab inline
+import matplotlib.pyplot as plot
+from matplotlib.pyplot import figure
+figure(num=None, figsize=(100, 20), dpi=90, facecolor='w', edgecolor='k')
+
 import numpy as np
-import matplotlib.pyplot as plt
-resolution = 0.0001
-x = np.arange(-np.pi,np.pi,resolution)
-# -pi to pi with the interval of 0.0001 
-square = np.array(x)
-square[range(x.size)] = 0
-square[range(int(x.size/2))] = 1
-square[range(int(x.size/2), int(x.size))]= 0
-np.trapz(square,x) # integration of f(x)
-a0 = (np.trapz(square,x))/ np.pi # dividing by pi which is present out side the integration
-n=1
-harm = np.sin(n*x)
-mult1 = square*harm
-fund = np.trapz(mult1,x)
-np.trapz(mult1,x)
-b1 = (np.trapz(mult1,x))/np.pi
-n=3
-harm = np.sin(n*x) 
-mult2 = square*harm
-third = np.trapz(mult2,x)
-np.trapz(mult2,x)
-b3 = (np.trapz(mult2,x))/np.pi
-20*np.log10(abs(third/fund))
-plt.subplot(311)
-plt.plot(x,square)
-plt.xlabel('(x)')
-plt.ylabel('f(x)')
-plt.title('SIGNAL', fontsize=18)
-plt.subplot(312)
-plt.plot(x,mult1)
-plt.plot(x,square)
-plt.xlabel('(x)')
-plt.ylabel('sin(1*x)*f(x)')
-plt.subplot(313)
-plt.plot(x,mult2)
-plt.plot(x,square)
-plt.xlabel('(x)')
-plt.ylabel('sin(3*x)*f(x)')
-plt.show()
+forier = lambda i,t,T: ((-1)**(i+1))*((4/(np.pi*((2*i)-1)))*np.cos(2*np.pi*((2*i)-1)*t)/T)
+T = 20
+time = []
+Sum =[]
+for t in np.arange(0,100,0.01):
+  F =[]
+  time.append(t)
+  for n in range(1,3,1):
+    F.append(forier(n,t,T))
+  Sum.append(sum(F))
+
+#plot(time, Sum, 'r-')
+
+plot.plot(time, Sum)
+# Give a title for the sine wave plot
+
+plot.title('Sine wave')
+# Give x axis label for the sine wave plot
+
+plot.xlabel('Time')
+# Give y axis label for the sine wave plot
+
+plot.ylabel('Amplitude = Forier value')
+
+plot.grid(True, which='both')
+
+plot.axhline(y=0, color='k')
+
+plot.show()
+# Display the sine wave
+
+plot.show()
+
+
