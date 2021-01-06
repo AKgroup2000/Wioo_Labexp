@@ -59,3 +59,86 @@ ax.set(xlabel='No of toss',
        title='ABS Error calculation')
 
 plt.show()
+
+ * * * ** * * * * *  * *  *EXP 9.4
+  
+import random 
+%matplotlib inline
+
+import matplotlib.pyplot as plt
+
+
+a =[]
+b = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+c = []
+sum =0
+for i in range(10000):
+  p = random.uniform(0,10)
+  a.append(int(p))
+
+for i in b:
+  sum =0
+  for j in a:
+    if j is i:
+      sum+=1
+  c.append(sum)
+print(c)
+
+fig, ax = plt.subplots()
+ax.plot(b, c)
+ax.set(xlabel='Sample',
+       ylabel='Total',
+       title='Uniform Random Vector ')
+
+plt.show()
+
+* * * * *  * * * * * * EXP 9.5
+import random 
+%matplotlib inline
+
+import matplotlib.pyplot as plt
+
+Thre =2
+a =[]
+b = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+c = []
+sum =0
+for i in range(10000):
+  p = random.uniform(0,10)
+  a.append(int(p))
+sum =0 
+for j in a:
+   if j is Thre:
+     sum+=1
+
+print("Function Reached Threshold 2 = ",sum)
+
+* * * *  * * * * * * EXP 9.6
+
+import random 
+%matplotlib inline
+
+import matplotlib.pyplot as plt
+
+Thre =2
+a =[]
+b = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+c = []
+sum =0
+for i in range(10000):
+  p = random.uniform(0,10)
+  a.append(int(p))
+sum =0 
+for j in a:
+   if j is Thre:
+     sum+=1
+
+print("Function Reached Threshold 2 = ",sum)
+Sum1 = 0
+for j in a:
+   if j > Thre:
+     Sum1+=1
+
+print("Function Reached Threshold 2 = ",Sum1)
+print("Function crossed Threshold 2 = ",sum + Sum1)
+
