@@ -10,7 +10,7 @@ from matplotlib.pyplot import figure
 figure(num=None, figsize=(100, 20), dpi=90, facecolor='w', edgecolor='k')
 
 import numpy as np
-forier = lambda i,t,T: ((-1)**(i+1))*((4/(np.pi*((2*i)-1)))*np.cos(2*np.pi*((2*i)-1)*t)/T)
+forier = lambda i,t,T: ((-1)**(i+1))*((4/(np.pi*((2*i)-1)))*np.cos((2*np.pi*((2*i)-1)*t)/T))
 T = 20
 time = []
 Sum =[]
